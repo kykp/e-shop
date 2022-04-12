@@ -8,7 +8,7 @@ function Shop () {
     const [goods, setGoods] = useState([]);
     const [status, setStatus] = useState(true);
 
-    useEffect(function() {
+    useEffect(function getGoods() {
         fetch(API_URL, {
             headers: {
                 "Authorization": API_KEY,
@@ -16,21 +16,19 @@ function Shop () {
         })
         .then(response => response.json())
         .then((data) => {
-            setGoods(data.shop)
-            setStatus(true)})
+            data.shop && setGoods(data.shop)
+            setStatus(false)})
         .catch((err) => {
             console.log(err);
             setStatus(false);
         })
     }, [])
 
-    if(!goods.length) {
-        return <Preloader/>
-    } else {
+    
     return <main className="container content"> 
-    <GoodsList goods={goods}/>
+    {status ? <Preloader/> : <GoodsList goods={goods}/>}
      </main>
-    }
+    
 }
 
 export {Shop}
