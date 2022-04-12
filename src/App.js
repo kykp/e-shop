@@ -5,6 +5,7 @@ import { Shop } from "./components/Shop";
 import "./index.css";
 
 function App() {
+
   return (
     <div className="App">
       <Header />

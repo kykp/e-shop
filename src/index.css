@@ -41,4 +41,39 @@ code {
 
 .content {
   min-height: calc(100vh - 179px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  color:#9BA3AF;
+  text-align: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: none;
+  transition: 1s;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0px 0px 19px 1px #ffffff;
+}
+.card-content {
+  flex-grow: 3;
+}
+.card .card-title {
+  font-size: 20px;
+  padding: 0 5px;
+}
+.card-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .card-action:last-child {
+  border-radius: 35px;
+  border: none;
 }
