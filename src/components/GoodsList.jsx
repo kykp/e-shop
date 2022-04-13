@@ -1,8 +1,10 @@
 import { Goods } from "./Goods"
 
 function GoodsList(props) {
-  
-    const {goods = [], addToBasket} = props;
+    const {
+        goods = [], 
+        addToBasket = Function.prototype,
+    } = props;
 
     if (!goods.length) {
         return <h3> Nothinkg here</h3>

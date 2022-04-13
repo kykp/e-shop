@@ -1,6 +1,13 @@
 function Goods(props) {
 
-    const  {mainId, displayName, displayDescription, price, displayType, addToBasket} = props;
+    const  {
+      mainId, 
+      displayName, 
+      displayDescription, 
+      price, 
+      displayType, 
+      addToBasket = Function.prototype,
+    } = props;
     const {regularPrice} = price;
 
     return <div className="card">
@@ -13,7 +20,10 @@ function Goods(props) {
     </div>
     <div className="card-action">
       <span>{regularPrice} rub</span>
-      <button className="btn blue lighten-2" onClick={() => addToBasket({displayName,regularPrice, mainId})}>Buy</button>
+      <button 
+      className="btn blue lighten-2" 
+      onClick={() => addToBasket({displayName,regularPrice, mainId})}
+      >Buy</button> 
     </div>
   </div>
 }
