@@ -103,6 +103,11 @@ i.medium {
  justify-items: center;
  align-items: center;
 }
+@media (max-width: 400px) {
+  .collection-item {
+    grid-template-columns: 1fr 1fr 1fr 10px;
+   }
+}
 .basket-popup{
   position: fixed;
   border-radius: 1rem;
@@ -137,10 +142,10 @@ i.medium {
     opacity: 1;
   }
 }
-
 .collection .collection-item.active {
   background-color: #8BC6EC;
   background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  display: block;
 }
 
 .btn-basket {
@@ -164,7 +169,7 @@ i.medium {
 }
 
 #toast-container{
-  top: 1rem;
+  top: 3rem;
   right:1rem;
 }
 
