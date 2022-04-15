@@ -14,16 +14,28 @@ const initialState = {
 export const ContextProvider = ({ children }) => {
   const [value, dispatch] = useReducer(reducer, initialState);
 
-  value.deleteName = () => {
-    dispatch({ type: "DELETE_NAME" });
+  value.addToBasket = (item) => {
+    dispatch({
+      type: "ADD_TO_BASKET",
+      payload: { item },
+    });
   };
-
   value.removeFromBasket = (id) => {
     dispatch({ type: "REMOVE_FROM_BASKET", payload: { id: id } });
   };
 
-  value.addToBasket = (item) => {
-      dispatch({type: "ADD_TO_BASKET", payload: {item: item.mainId }});
+  value.showBasket = () => {
+    dispatch({ type: "SHOW_BASKET" });
+  };
+  value.increment = (id) => {
+    dispatch({ type: "INCREMENT", payload: { id } });
+  };
+  value.decrement = (id) => {
+    dispatch({ type: "DECREMENT", payload: { id } });
+  };
+
+  value.deleteName = () => {
+    dispatch({ type: "DELETE_NAME" });
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
