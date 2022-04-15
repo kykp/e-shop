@@ -23,8 +23,8 @@ export const ContextProvider = ({ children }) => {
   };
 
   value.addToBasket = (item) => {
-      dispatch({type: "ADD_TO_BASKET"}, payload: {item: })
-  }
+      dispatch({type: "ADD_TO_BASKET", payload: {item: item.mainId }});
+  };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
